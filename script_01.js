@@ -5,7 +5,7 @@
 /*
 0. a+b | a-b | a*b | a/b  --> Ergebnis c 
 
-1. Dateneingabe + -überprüfung :
+1. Dateneingabe + -überprüfung : check! / 
 2. Auswahl Rechenart : check!
 3. Fkt. Grundrechenarten : check!
 4. Ausgabe in Konsole : check!
@@ -16,6 +16,21 @@
 // Konstanten
 const ERROR_STR_DIV = "Division durch 0 nicht möglich!";
 const ERROR_STR_GEN = "Irgendetwas ging schief!"
+
+
+startApp();
+function startApp() {
+	// output(calculator(parseFloat(prompt("Zahl1"),prompt("Zahl2"),prompt("Operator")))); // schlecht lesbarer Code! //
+	output(calculator(getNum("1"),getNum("2"),getOp())); // schönere Alternative!
+}
+
+function getNum(modStr) {
+	return parseFloat(prompt("Zahl " + modStr));
+}
+
+function getOp() {
+	return prompt("Operator");
+}
 
 // module: calculator | tests:
 // agreement : "+","-","*",":","/"
@@ -40,7 +55,7 @@ function calculator(a,b,op) {
 		case ":":
 		case "/":
 			return divide(a,b);
-			default:
+		default:
 			return ERROR_STR_GEN;
 	}
 }
@@ -87,7 +102,7 @@ function subtract(a,b) {
 // output(add(2,-2));
 // output(add(2,0));
 function add(a,b) {
-	return a+ b;
+	return a + b;
 }
 
 // module: output | test:
